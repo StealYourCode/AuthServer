@@ -28,13 +28,11 @@ public class User {
      * role, and email. The password is automatically hashed before storage, and a unique
      * identifier (UUID) is generated for the user.
      *
-     * @param username    The username chosen by the user.
      * @param rawPassword The clear (plain-text) password provided by the user.
      * @param email       The email address of the user.
      */
-    public User(String username, String rawPassword, String email) {
+    public User(String rawPassword, String email) {
         this.id = UUID.randomUUID().toString();
-        this.username = username;
         this.hashedPassword = hashPassword(rawPassword);
         this.email = email;
     }

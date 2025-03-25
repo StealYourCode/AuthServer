@@ -15,21 +15,17 @@ public class UserServices {
         this.tokenServices = tokenServices;
     }
 
-    public User registerUser(String username, String password, String email) {
-        if (IUserRepository.existsByUsername(username)) {
-            System.out.println("[UserServices] Username already exists: " + username);
-            return null;
-        }
+    public User registerUser(String password, String email) {
 
         if (!PasswordChecker.isPasswordStrong(password)) {
-            System.out.println("[UserServices] Weak password provided for: " + username);
+            System.out.println("[UserServices] Weak password provided for: " + email);
             return null;
         }
 
-        User newUser = new User(username, password, email);
+        User newUser = new User(password, email);
         IUserRepository.save(newUser);
 
-        System.out.println("[UserServices] User registered successfully: " + username);
+        System.out.println("[UserServices] User registered successfully: " + email);
         return newUser;
     }
 

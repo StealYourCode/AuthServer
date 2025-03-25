@@ -19,7 +19,7 @@ public class CertServices {
 
     public CertServices() {
 
-        // MIGHT NEED TO CHANGE THE PATH IN PROD
+        // NEED TO CHANGE THE PATH TO ALWAYS FIND THE CERT DIRECTORY
         String certPath = System.getenv("PWD") + "/certificates/";
 
         try {
